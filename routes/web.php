@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\StudentController;
@@ -10,16 +11,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', DashboardController::class)
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     // One landing address per role. The permission middleware decides who may open it, so a
     // student typing the administrator address is refused even though they are signed in.
-    Route::view('/administrator', 'dashboard')->middleware('permission:manage students')->name('administrator');
-    Route::view('/lecturer', 'dashboard')->middleware('permission:view assigned courses')->name('lecturer');
-    Route::view('/student', 'dashboard')->middleware('permission:view available courses')->name('student');
+    Route::get('/administrator', DashboardController::class)->middleware('permission:manage students')->name('administrator');
+    Route::get('/lecturer', DashboardController::class)->middleware('permission:view assigned courses')->name('lecturer');
+    Route::get('/student', DashboardController::class)->middleware('permission:view available courses')->name('student');
 
     // Student records. Reading one record is decided by the policy inside the controller because a
     // student may open their own; writing any record is an administrator task.
