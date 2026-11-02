@@ -42,6 +42,10 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // Without a role the new account reaches a desk that can offer it nothing, so a self-registered
+        // account starts as a student and the registrar promotes it from the register.
+        $user->syncRoles(['student']);
+
         event(new Registered($user));
 
         Auth::login($user);
