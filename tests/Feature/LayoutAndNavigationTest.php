@@ -11,11 +11,11 @@ class LayoutAndNavigationTest extends TestCase
 {
     use RefreshDatabase;
 
-    private const ADMINISTRATOR = 'registrar@makerere.ac.ug';
+    private const ADMINISTRATOR = 'admin@makerere.ac.ug';
 
-    private const LECTURER = 'g.asingya@makerere.ac.ug';
+    private const LECTURER = 'lecturer1@makerere.ac.ug';
 
-    private const STUDENT = '2400709637@student.makerere.ac.ug';
+    private const STUDENT = 'student1@makerere.ac.ug';
 
     protected function setUp(): void
     {

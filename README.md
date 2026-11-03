@@ -134,22 +134,25 @@ linked to their account yet, and the administrator links one from the student fo
 
 ## 5. Sample logins
 
-Every seeded account uses the password `password`.
+Every seeded account uses the password `password`. The addresses follow one rule — `admin`, then
+`lecturer1` to `lecturer3`, then `student1` to `student8`, each in the order it appears below — so any of
+them can be typed from memory. The admission number stays on the student's own record and is still what
+the register lists them under.
 
 | Role | Name | Email |
 |---|---|---|
-| administrator | System Registrar | `registrar@makerere.ac.ug` |
-| lecturer | Godfrey Asingya | `g.asingya@makerere.ac.ug` |
-| lecturer | Alice Nakabuye | `a.nakabuye@makerere.ac.ug` |
-| lecturer | Peter Muwanga | `p.muwanga@makerere.ac.ug` |
-| student | Nansikombi Kirsten Angel — 2400709637 | `2400709637@student.makerere.ac.ug` |
-| student | Byonga Shadia Patience — 2400714921 | `2400714921@student.makerere.ac.ug` |
-| student | Munywanyi Muniirah — 2400707324 | `2400707324@student.makerere.ac.ug` |
-| student | Ntege Janat — 2400710338 | `2400710338@student.makerere.ac.ug` |
-| student | Nakimbugwe Daphne — 2400708517 | `2400708517@student.makerere.ac.ug` |
-| student | Aisha Nabirye — 2400712456 | `2400712456@student.makerere.ac.ug` |
-| student | Ivan Mukasa — 2400721033 | `2400721033@student.makerere.ac.ug` |
-| student | Tracy Namutebi — 2400706812 | `2400706812@student.makerere.ac.ug` |
+| administrator | System Registrar | `admin@makerere.ac.ug` |
+| lecturer | Godfrey Asingya | `lecturer1@makerere.ac.ug` |
+| lecturer | Alice Nakabuye | `lecturer2@makerere.ac.ug` |
+| lecturer | Peter Muwanga | `lecturer3@makerere.ac.ug` |
+| student | Nansikombi Kirsten Angel — 2400709637 | `student1@makerere.ac.ug` |
+| student | Byonga Shadia Patience — 2400714921 | `student2@makerere.ac.ug` |
+| student | Munywanyi Muniirah — 2400707324 | `student3@makerere.ac.ug` |
+| student | Ntege Janat — 2400710338 | `student4@makerere.ac.ug` |
+| student | Nakimbugwe Daphne — 2400708517 | `student5@makerere.ac.ug` |
+| student | Aisha Nabirye — 2400712456 | `student6@makerere.ac.ug` |
+| student | Ivan Mukasa — 2400721033 | `student7@makerere.ac.ug` |
+| student | Tracy Namutebi — 2400706812 | `student8@makerere.ac.ug` |
 
 The catalogue holds BUC2104 Database Systems (4 credits), BUC2206 Object Oriented Programming (4),
 BUC3131 Advanced Web Application Development (4), BUC3204 Web and Mobile Computing (3), BUC2302 Business
