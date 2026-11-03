@@ -330,8 +330,9 @@ cropped or resized for this application. They are not the application's own scre
 | `role-lecturer.jpg` | [Luganda Wikipedia sensitisation, Makerere University 2](https://commons.wikimedia.org/wiki/File:Luganda_Wikipedia_sensitisation,_Makerere_University2.jpg) | Ssemmanda will | CC0 (no attribution required) |
 | `role-student.jpg` | [Makerere University Main Library](https://commons.wikimedia.org/wiki/File:Makerere_University_Main_Library.jpg) | Sandra Aceng | CC BY-SA 4.0 |
 
-CC BY and CC BY-SA require the author and the licence to be named where the image appears, which the landing
-page does in the caption under the task list and this table repeats.
+CC BY and CC BY-SA require the author and the licence to be named wherever the image appears. The landing page
+carries no credit line, so this table is that attribution: keep it in any copy of the project that ships the
+photographs, and name the same authors and licences in the report if the pictures appear there.
 
 ## 10. How the work was split
 

@@ -134,37 +134,6 @@
                          alt="Students at their desks in a Makerere University lecture room while two presenters work at the front"
                          width="1120" height="700" fetchpriority="high" decoding="async"
                          class="h-48 w-full rounded-xl object-cover shadow-sm ring-1 ring-slate-200">
-
-                    <h2 class="font-display mt-5 text-lg font-semibold text-slate-900">What you can do in it</h2>
-                    <p class="mt-1.5 text-sm leading-relaxed text-slate-600">
-                        Every screen reads the signed-in account first, so only the rows, links and buttons that role
-                        is allowed to touch appear.
-                    </p>
-
-                    <ul class="mt-4 space-y-3 border-t border-blue-100 pt-4">
-                        @foreach ([
-                            'Keep the register: admission number, names, programme, year of study and date of birth for every student.',
-                            'Run the catalogue: course code, title, credit units, semester and the lecturer assigned to teach it.',
-                            'Register a student on a course with a status and the date of enrolment, from their own desk or on behalf of any student as the registrar.',
-                            'Refuse a duplicate registration, a malformed form, and any delete another record still depends on.',
-                        ] as $task)
-                            <li class="flex gap-3 text-sm leading-relaxed text-slate-700">
-                                <svg class="mt-0.5 h-4 w-4 shrink-0 text-blue-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <span>{{ $task }}</span>
-                            </li>
-                        @endforeach
-                    </ul>
-
-                    <p class="mt-4 text-xs leading-relaxed text-slate-500">
-                        Photographs from
-                        <a href="https://commons.wikimedia.org/wiki/File:Luganda_Wikipedia_sensitisation,_Makerere_University.jpg"
-                           class="underline decoration-slate-300 hover:text-blue-800">Wikimedia Commons</a>:
-                        Ssemmanda will (CC0) above; Eric Lubega and Elias Tuheretze, Ssemmanda will and
-                        <a href="https://commons.wikimedia.org/wiki/File:Makerere_University_Main_Library.jpg"
-                           class="underline decoration-slate-300 hover:text-blue-800">Sandra Aceng</a> in the role strip (CC BY-SA).
-                    </p>
                 </aside>
             </div>
         </main>
