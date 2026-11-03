@@ -34,9 +34,6 @@
                 <main class="flex-1">
                     {{ $slot }}
                 </main>
-
-                <!-- Page Footer -->
-                <x-footer />
             </div>
         </div>
     </body>

@@ -24,7 +24,7 @@ the coursework as the six questions land, and each member worked on one feature 
 | 2 — factories, seeders, no duplicates on re-run | 4 | `database/factories/`, `database/seeders/RolePermissionSeeder.php`, `database/seeders/DemoDataSeeder.php`, wired in `DatabaseSeeder` | `tests/Feature/FactoriesAndSeedersTest.php` (13) |
 | 3 — accounts, roles, permissions | 6 | Breeze Blade stack, `HasRoles` on `app/Models/User.php`, `app/Policies/`, the `role` and `permission` shortcuts in `bootstrap/app.php`, the guards in `routes/web.php` | `RoleAndPermissionTest.php` (8), `RecordOwnershipTest.php` (7), `tests/Feature/Auth/` (20) |
 | 4 — CRUD with validation | 12 | `app/Http/Controllers/{Student,Course,Registration,Dashboard}Controller.php`, `app/Http/Requests/`, the views under `resources/views/{students,courses,registrations}` | `StudentCrudTest.php` (14), `CourseCrudTest.php` (14), `CourseRegistrationTest.php` (13) |
-| 5 — layout, components, permission-aware navigation | 5 | `resources/views/layouts/{app,sidebar,navigation}.blade.php`, `resources/views/components/{nav-links,nav-link,footer,alerts}.blade.php`, `resources/views/dashboard.blade.php`, `DashboardController` | `LayoutAndNavigationTest.php` (9) |
+| 5 — layout, components, permission-aware navigation | 5 | `resources/views/layouts/{app,sidebar,navigation}.blade.php`, `resources/views/components/{nav-links,nav-link,alerts}.blade.php`, `resources/views/dashboard.blade.php`, `DashboardController` | `LayoutAndNavigationTest.php` (9) |
 | 6 — documentation and contribution report | 3 | this file, `CONTRIBUTIONS.md`, `docs/screenshots/` | — |
 
 ## 2. Installing it
@@ -251,10 +251,10 @@ people still need to read (see section 7).
 
 ## 7. The screens
 
-Every page is built from the same layout: header, navigation, content section and footer. On a wide screen the
+Every page is built from the same layout: header, navigation and a content section. On a wide screen the
 navigation is a sidebar down the left with the signed-in account and the log-out at its foot; below 1024 px it
 collapses to a top bar with a drawer. Either way it is read from one permission-aware list, so an account can
-only see the links to the pages it may open, and the footer names the role it is acting as.
+only see the links to the pages it may open, and the desk heading names the role it is acting as.
 
 | Address | Who may open it | What it does |
 |---|---|---|

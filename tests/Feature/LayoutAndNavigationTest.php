@@ -24,7 +24,7 @@ class LayoutAndNavigationTest extends TestCase
         $this->seed(DatabaseSeeder::class);
     }
 
-    public function test_the_layout_rolls_out_a_header_a_navigation_a_content_area_and_a_footer(): void
+    public function test_the_layout_rolls_out_a_header_a_navigation_and_a_content_area(): void
     {
         $administrator = $this->account(self::ADMINISTRATOR);
 
@@ -33,8 +33,7 @@ class LayoutAndNavigationTest extends TestCase
                 ->get($address)
                 ->assertOk()
                 ->assertSee('Overview')
-                ->assertSee('Signed in as')
-                ->assertSee('BUC3131');
+                ->assertSee($administrator->name);
         }
     }
 
@@ -138,7 +137,7 @@ class LayoutAndNavigationTest extends TestCase
         $this->assertSame(0, substr_count($studentPage->getContent(), 'href="'.route('administrator').'"'));
     }
 
-    public function test_a_guest_page_carries_neither_the_navigation_nor_the_signed_in_footer(): void
+    public function test_a_guest_page_carries_neither_the_navigation_nor_the_signed_in_account_block(): void
     {
         $this->get('/login')
             ->assertOk()

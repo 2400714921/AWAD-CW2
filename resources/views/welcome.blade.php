@@ -168,21 +168,5 @@
                 </aside>
             </div>
         </main>
-
-        <footer class="shrink-0 border-t border-slate-200 bg-white">
-            <div class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-5 py-4 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-8">
-                <p class="text-slate-500">
-                    Built for
-                    <span class="text-slate-700">BUC3131 Coursework Two, 2026/2027</span>,
-                    Makerere University Business School.
-                </p>
-                @auth
-                    <p class="text-slate-500">
-                        Signed in as
-                        <span class="text-slate-700">{{ Auth::user()->getRoleNames()->implode(', ') ?: 'no role' }}</span>
-                    </p>
-                @endauth
-            </div>
-        </footer>
     </body>
 </html>

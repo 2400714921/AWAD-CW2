@@ -14,7 +14,7 @@ them up automatically.
 
 | File | Sign in as | Address | What must be visible |
 |---|---|---|---|
-| `administrator-desk.png` | `registrar@makerere.ac.ug` | `/administrator` | the heading *Dashboard — Administrator desk*, the four counts (students, courses, live registrations, accounts), the sidebar showing the administrator's links, and the footer naming the `administrator` role |
+| `administrator-desk.png` | `registrar@makerere.ac.ug` | `/administrator` | the heading *Dashboard — Administrator desk*, the four counts (students, courses, live registrations, accounts), the sidebar showing the administrator's links, and the sidebar foot naming the signed-in account |
 | `administrator-students.png` | `registrar@makerere.ac.ug` | `/students` | all eight students with their admission numbers, programmes and years of study, plus the Edit and Delete links that only the administrator sees |
 | `administrator-courses.png` | `registrar@makerere.ac.ug` | `/courses` | the heading *All courses* and the six courses with codes, titles, credit units, semester and teaching lecturer |
 | `administrator-registrations.png` | `registrar@makerere.ac.ug` | `/registrations` | the twenty registrations with the student, the course, the status and the `registered_at` date from the pivot table |
