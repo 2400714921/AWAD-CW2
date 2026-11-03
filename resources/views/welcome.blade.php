@@ -100,31 +100,52 @@
 
                     <div class="mt-3 grid gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
                         @foreach ([
-                            'Administrator' => 'Adds and edits students and courses, registers anyone on any course, corrects a status and removes a record once nothing depends on it.',
-                            'Lecturer' => 'Opens the courses assigned to them, reads who is registered on each one and the registrations standing against them.',
-                            'Student' => 'Browses the courses still open to them, registers for one, keeps their programme and admission number straight, and cancels only their own registrations.',
-                        ] as $role => $summary)
+                            'Administrator' => [
+                                'summary' => 'Adds and edits students and courses, registers anyone on any course, corrects a status and removes a record once nothing depends on it.',
+                                'image' => '/images/role-administrator.jpg',
+                                'alt' => 'The main administration block at Makerere University',
+                            ],
+                            'Lecturer' => [
+                                'summary' => 'Opens the courses assigned to them, reads who is registered on each one and the registrations standing against them.',
+                                'image' => '/images/role-lecturer.jpg',
+                                'alt' => 'Two presenters at the front of a Makerere lecture room',
+                            ],
+                            'Student' => [
+                                'summary' => 'Browses the courses still open to them, registers for one, keeps their programme and admission number straight, and cancels only their own registrations.',
+                                'image' => '/images/role-student.jpg',
+                                'alt' => 'Students walking up to the Main Library at Makerere University',
+                            ],
+                        ] as $role => $panel)
                             <div class="bg-white p-4">
-                                <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">{{ $role }}</p>
-                                <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ $summary }}</p>
+                                <div class="flex items-center gap-3">
+                                    <img src="{{ $panel['image'] }}" alt="{{ $panel['alt'] }}" width="200" height="200"
+                                         loading="lazy" decoding="async"
+                                         class="h-10 w-10 shrink-0 rounded-lg object-cover ring-1 ring-slate-200">
+                                    <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">{{ $role }}</p>
+                                </div>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ $panel['summary'] }}</p>
                             </div>
                         @endforeach
                     </div>
                 </div>
 
                 <aside class="self-center rounded-2xl border border-blue-100 bg-blue-50/70 p-5 sm:p-6">
-                    <h2 class="font-display text-lg font-semibold text-slate-900">What you can do in it</h2>
+                    <img src="/images/hero-lecture-hall.jpg"
+                         alt="Students at their desks in a Makerere University lecture room while two presenters work at the front"
+                         width="1120" height="700" fetchpriority="high" decoding="async"
+                         class="h-48 w-full rounded-xl object-cover shadow-sm ring-1 ring-slate-200">
+
+                    <h2 class="font-display mt-5 text-lg font-semibold text-slate-900">What you can do in it</h2>
                     <p class="mt-1.5 text-sm leading-relaxed text-slate-600">
-                        Every screen reads the signed-in account first, so the rows, the links and the buttons that
-                        appear are only the ones that role is allowed to touch.
+                        Every screen reads the signed-in account first, so only the rows, links and buttons that role
+                        is allowed to touch appear.
                     </p>
 
                     <ul class="mt-4 space-y-3 border-t border-blue-100 pt-4">
                         @foreach ([
                             'Keep the register: admission number, names, programme, year of study and date of birth for every student.',
                             'Run the catalogue: course code, title, credit units, semester and the lecturer assigned to teach it.',
-                            'Register a student on a course with a status and the date of enrolment, and cancel it again.',
-                            'Register a student on behalf of that student, or let them do it themselves from their own desk.',
+                            'Register a student on a course with a status and the date of enrolment, from their own desk or on behalf of any student as the registrar.',
                             'Refuse a duplicate registration, a malformed form, and any delete another record still depends on.',
                         ] as $task)
                             <li class="flex gap-3 text-sm leading-relaxed text-slate-700">
@@ -135,6 +156,15 @@
                             </li>
                         @endforeach
                     </ul>
+
+                    <p class="mt-4 text-xs leading-relaxed text-slate-500">
+                        Photographs from
+                        <a href="https://commons.wikimedia.org/wiki/File:Luganda_Wikipedia_sensitisation,_Makerere_University.jpg"
+                           class="underline decoration-slate-300 hover:text-blue-800">Wikimedia Commons</a>:
+                        Ssemmanda will (CC0) above; Eric Lubega and Elias Tuheretze, Ssemmanda will and
+                        <a href="https://commons.wikimedia.org/wiki/File:Makerere_University_Main_Library.jpg"
+                           class="underline decoration-slate-300 hover:text-blue-800">Sandra Aceng</a> in the role strip (CC BY-SA).
+                    </p>
                 </aside>
             </div>
         </main>

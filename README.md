@@ -24,7 +24,7 @@ the coursework as the six questions land, and each member worked on one feature 
 | 2 — factories, seeders, no duplicates on re-run | 4 | `database/factories/`, `database/seeders/RolePermissionSeeder.php`, `database/seeders/DemoDataSeeder.php`, wired in `DatabaseSeeder` | `tests/Feature/FactoriesAndSeedersTest.php` (13) |
 | 3 — accounts, roles, permissions | 6 | Breeze Blade stack, `HasRoles` on `app/Models/User.php`, `app/Policies/`, the `role` and `permission` shortcuts in `bootstrap/app.php`, the guards in `routes/web.php` | `RoleAndPermissionTest.php` (8), `RecordOwnershipTest.php` (7), `tests/Feature/Auth/` (20) |
 | 4 — CRUD with validation | 12 | `app/Http/Controllers/{Student,Course,Registration,Dashboard}Controller.php`, `app/Http/Requests/`, the views under `resources/views/{students,courses,registrations}` | `StudentCrudTest.php` (14), `CourseCrudTest.php` (14), `CourseRegistrationTest.php` (13) |
-| 5 — layout, components, permission-aware navigation | 5 | `resources/views/layouts/app.blade.php`, `resources/views/components/{nav-links,footer,alerts}.blade.php`, `resources/views/dashboard.blade.php`, `DashboardController` | `LayoutAndNavigationTest.php` (9) |
+| 5 — layout, components, permission-aware navigation | 5 | `resources/views/layouts/{app,sidebar,navigation}.blade.php`, `resources/views/components/{nav-links,nav-link,footer,alerts}.blade.php`, `resources/views/dashboard.blade.php`, `DashboardController` | `LayoutAndNavigationTest.php` (9) |
 | 6 — documentation and contribution report | 3 | this file, `CONTRIBUTIONS.md`, `docs/screenshots/` | — |
 
 ## 2. Installing it
@@ -251,9 +251,10 @@ people still need to read (see section 7).
 
 ## 7. The screens
 
-Every page is built from the same layout: header, navigation, content section and footer. The navigation
-and the footer are permission-aware, so an account can only see the links to the pages it may open, and
-the footer names the role it is acting as.
+Every page is built from the same layout: header, navigation, content section and footer. On a wide screen the
+navigation is a sidebar down the left with the signed-in account and the log-out at its foot; below 1024 px it
+collapses to a top bar with a drawer. Either way it is read from one permission-aware list, so an account can
+only see the links to the pages it may open, and the footer names the role it is acting as.
 
 | Address | Who may open it | What it does |
 |---|---|---|
@@ -315,7 +316,22 @@ running. `docs/screenshots/README.md` gives the account, the page and the detail
 | Student desk | `docs/screenshots/student-desk.png` |
 | Registration form | `docs/screenshots/student-registration-form.png` |
 | A student refused the administrator's page | `docs/screenshots/permission-refused.png` |
-| Permission-aware navigation, mobile drawer | `docs/screenshots/navigation-collapsed.png` |
+| Permission-aware navigation: sidebar and drawer | `docs/screenshots/navigation-collapsed.png` |
+
+### Image credits
+
+The four photographs on the landing page are copies held in `public/images/`, taken from Wikimedia Commons and
+cropped or resized for this application. They are not the application's own screenshots.
+
+| File | Wikimedia Commons page | Author | Licence |
+|---|---|---|---|
+| `hero-lecture-hall.jpg` | [Luganda Wikipedia sensitisation, Makerere University](https://commons.wikimedia.org/wiki/File:Luganda_Wikipedia_sensitisation,_Makerere_University.jpg) | Ssemmanda will | CC0 (no attribution required) |
+| `role-administrator.jpg` | [Makerere University, Main Administration Block](https://commons.wikimedia.org/wiki/File:Makerere_University,_Main_Administration_Block(main_building).JPG) | Eric Lubega and Elias Tuheretze | CC BY-SA 3.0 |
+| `role-lecturer.jpg` | [Luganda Wikipedia sensitisation, Makerere University 2](https://commons.wikimedia.org/wiki/File:Luganda_Wikipedia_sensitisation,_Makerere_University2.jpg) | Ssemmanda will | CC0 (no attribution required) |
+| `role-student.jpg` | [Makerere University Main Library](https://commons.wikimedia.org/wiki/File:Makerere_University_Main_Library.jpg) | Sandra Aceng | CC BY-SA 4.0 |
+
+CC BY and CC BY-SA require the author and the licence to be named where the image appears, which the landing
+page does in the caption under the task list and this table repeats.
 
 ## 10. How the work was split
 
