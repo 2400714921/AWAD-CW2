@@ -107,7 +107,7 @@
                 <div class="xl:col-span-2">
                     <h2 class="font-display text-base font-semibold text-slate-900">What each role does here</h2>
 
-                    <div class="mt-3 grid gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
+                    <div class="mt-4 grid gap-5 sm:grid-cols-3">
                         @foreach ([
                             'Administrator' => [
                                 'summary' => 'Adds and edits students and courses, registers anyone on any course, corrects a status and removes a record once nothing depends on it.',
@@ -125,15 +125,15 @@
                                 'alt' => 'Students walking up to the Main Library at Makerere University',
                             ],
                         ] as $role => $panel)
-                            <div class="bg-white p-4">
-                                <div class="flex items-center gap-3">
-                                    <img src="{{ $panel['image'] }}" alt="{{ $panel['alt'] }}" width="200" height="200"
-                                         loading="lazy" decoding="async"
-                                         class="h-10 w-10 shrink-0 rounded-lg object-cover ring-1 ring-slate-200">
+                            <article class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                                <img src="{{ $panel['image'] }}" alt="{{ $panel['alt'] }}" width="720" height="440"
+                                     loading="lazy" decoding="async"
+                                     class="h-44 w-full object-cover">
+                                <div class="p-5">
                                     <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">{{ $role }}</p>
+                                    <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ $panel['summary'] }}</p>
                                 </div>
-                                <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ $panel['summary'] }}</p>
-                            </div>
+                            </article>
                         @endforeach
                     </div>
                 </div>
