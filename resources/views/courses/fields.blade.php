@@ -31,7 +31,7 @@
 
     <div>
         <x-input-label for="lecturer_id" value="Lecturer" />
-        <select id="lecturer_id" name="lecturer_id" class="block w-full mt-1 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" required>
+        <select id="lecturer_id" name="lecturer_id" class="block w-full mt-1 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm" required>
             <option value="">Choose a lecturer</option>
             @foreach ($lecturers as $lecturer)
                 <option value="{{ $lecturer->id }}" @selected(old('lecturer_id', $record?->lecturer_id) == $lecturer->id)>
@@ -45,7 +45,7 @@
     <div class="md:col-span-2">
         <x-input-label for="description" value="Description" />
         <textarea id="description" name="description" rows="4"
-                  class="block w-full mt-1 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">{{ old('description', $record?->description) }}</textarea>
+                  class="block w-full mt-1 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm">{{ old('description', $record?->description) }}</textarea>
         <x-input-error class="mt-2" :messages="$errors->get('description')" />
     </div>
 </div>

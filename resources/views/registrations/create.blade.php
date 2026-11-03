@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Register for a course</h2>
+        <h2 class="font-semibold text-xl text-slate-800 leading-tight">Register for a course</h2>
     </x-slot>
 
     <div class="py-12">
@@ -15,7 +15,7 @@
                         <div>
                             <x-input-label for="student_id" value="Student" />
                             <select id="student_id" name="student_id" required
-                                    class="block w-full mt-1 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                    class="block w-full mt-1 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm">
                                 <option value="">Choose a student</option>
                                 @foreach ($students as $option)
                                     <option value="{{ $option->id }}" @selected(old('student_id') == $option->id)>
@@ -26,7 +26,7 @@
                             <x-input-error class="mt-2" :messages="$errors->get('student_id')" />
                         </div>
                     @else
-                        <p class="text-sm text-gray-600">
+                        <p class="text-sm text-slate-600">
                             Registering <span class="font-medium">{{ $student->full_name }}</span>
                             ({{ $student->student_number }}).
                         </p>
@@ -36,7 +36,7 @@
                     <div>
                         <x-input-label for="course_id" value="Course" />
                         <select id="course_id" name="course_id" required
-                                class="block w-full mt-1 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                                class="block w-full mt-1 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm">
                             <option value="">Choose a course</option>
                             @foreach ($available as $course)
                                 <option value="{{ $course->id }}" @selected(old('course_id') == $course->id)>
@@ -50,12 +50,12 @@
 
                     <div class="flex items-center gap-4">
                         <x-primary-button>Register</x-primary-button>
-                        <a href="{{ route('registrations.index') }}" class="text-sm text-gray-600 hover:underline">Cancel</a>
+                        <a href="{{ route('registrations.index') }}" class="text-sm text-slate-600 hover:underline">Cancel</a>
                     </div>
                 </form>
             </div>
 
-            <p class="text-sm text-gray-500">
+            <p class="text-sm text-slate-500">
                 Courses you are already registered for are kept out of this list, and the register refuses a
                 second entry for the same student and course.
             </p>

@@ -52,7 +52,7 @@
 
     <div>
         <x-input-label for="user_id" value="Login account" />
-        <select id="user_id" name="user_id" class="block w-full mt-1 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+        <select id="user_id" name="user_id" class="block w-full mt-1 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm">
             <option value="">Not linked yet</option>
             @foreach ($accounts as $account)
                 <option value="{{ $account->id }}" @selected(old('user_id', $record?->user_id) == $account->id)>
