@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Student Management System') }} — BUC3131 Coursework Two</title>
-        <meta name="description" content="Student Management System for Makerere University Business School, BUC3131 Advanced Web Application Development, Coursework Two 2026/2027. Students, courses and registrations, guarded by three roles.">
+        <title>Student Management System</title>
+        <meta name="description" content="Student Management System for Makerere University Business School. Students, courses and registrations, guarded by three roles.">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -42,7 +42,7 @@
                     </span>
                     <span class="leading-tight">
                         <span class="block text-sm font-semibold text-slate-900">Student Management System</span>
-                        <span class="block text-xs text-slate-500">{{ config('app.name', 'AWAD CW2') }} · BUC3131</span>
+                        <span class="block text-xs text-slate-500">Student Records · Courses · Registrations</span>
                     </span>
                 </a>
 
@@ -71,7 +71,7 @@
             <div class="mx-auto grid w-full max-w-6xl gap-8 px-5 py-8 sm:px-8 lg:gap-12 xl:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] xl:py-10">
                 <div>
                     <p class="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
-                        Makerere University Business School · Coursework Two 2026/2027
+                        Makerere University Business School
                     </p>
 
                     <h1 class="font-display mt-4 text-4xl font-semibold leading-[1.1] text-slate-900 sm:text-5xl">
@@ -95,64 +95,49 @@
                             </a>
                         @endauth
                     </div>
-
-                    <h2 class="font-display mt-8 text-base font-semibold text-slate-900">What each role does here</h2>
-
-                    <div class="mt-3 grid gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
-                        @foreach ([
-                            'Administrator' => 'Adds and edits students and courses, registers anyone on any course, corrects a status and removes a record once nothing depends on it.',
-                            'Lecturer' => 'Opens the courses assigned to them, reads who is registered on each one and the registrations standing against them.',
-                            'Student' => 'Browses the courses still open to them, registers for one, keeps their programme and admission number straight, and cancels only their own registrations.',
-                        ] as $role => $summary)
-                            <div class="bg-white p-4">
-                                <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">{{ $role }}</p>
-                                <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ $summary }}</p>
-                            </div>
-                        @endforeach
-                    </div>
                 </div>
 
                 <aside class="self-center rounded-2xl border border-blue-100 bg-blue-50/70 p-5 sm:p-6">
-                    <h2 class="font-display text-lg font-semibold text-slate-900">What you can do in it</h2>
-                    <p class="mt-1.5 text-sm leading-relaxed text-slate-600">
-                        Every screen reads the signed-in account first, so the rows, the links and the buttons that
-                        appear are only the ones that role is allowed to touch.
-                    </p>
-
-                    <ul class="mt-4 space-y-3 border-t border-blue-100 pt-4">
-                        @foreach ([
-                            'Keep the register: admission number, names, programme, year of study and date of birth for every student.',
-                            'Run the catalogue: course code, title, credit units, semester and the lecturer assigned to teach it.',
-                            'Register a student on a course with a status and the date of enrolment, and cancel it again.',
-                            'Register a student on behalf of that student, or let them do it themselves from their own desk.',
-                            'Refuse a duplicate registration, a malformed form, and any delete another record still depends on.',
-                        ] as $task)
-                            <li class="flex gap-3 text-sm leading-relaxed text-slate-700">
-                                <svg class="mt-0.5 h-4 w-4 shrink-0 text-blue-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <span>{{ $task }}</span>
-                            </li>
-                        @endforeach
-                    </ul>
+                    <img src="/images/hero-lecture-hall.jpg"
+                         alt="Students at their desks in a Makerere University lecture room while two presenters work at the front"
+                         width="1120" height="700" fetchpriority="high" decoding="async"
+                         class="h-48 w-full rounded-xl object-cover shadow-sm ring-1 ring-slate-200">
                 </aside>
+
+                <div class="xl:col-span-2">
+                    <h2 class="font-display text-base font-semibold text-slate-900">What each role does here</h2>
+
+                    <div class="mt-4 grid gap-5 sm:grid-cols-3">
+                        @foreach ([
+                            'Administrator' => [
+                                'summary' => 'Adds and edits students and courses, registers anyone on any course, corrects a status and removes a record once nothing depends on it.',
+                                'image' => '/images/role-administrator.jpg',
+                                'alt' => 'The main administration block at Makerere University',
+                            ],
+                            'Lecturer' => [
+                                'summary' => 'Opens the courses assigned to them, reads who is registered on each one and the registrations standing against them.',
+                                'image' => '/images/role-lecturer.jpg',
+                                'alt' => 'Two presenters at the front of a Makerere lecture room',
+                            ],
+                            'Student' => [
+                                'summary' => 'Browses the courses still open to them, registers for one, keeps their programme and admission number straight, and cancels only their own registrations.',
+                                'image' => '/images/role-student.jpg',
+                                'alt' => 'Students walking up to the Main Library at Makerere University',
+                            ],
+                        ] as $role => $panel)
+                            <article class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                                <img src="{{ $panel['image'] }}" alt="{{ $panel['alt'] }}" width="720" height="440"
+                                     loading="lazy" decoding="async"
+                                     class="h-44 w-full object-cover">
+                                <div class="p-5">
+                                    <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">{{ $role }}</p>
+                                    <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ $panel['summary'] }}</p>
+                                </div>
+                            </article>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </main>
-
-        <footer class="shrink-0 border-t border-slate-200 bg-white">
-            <div class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-5 py-4 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-8">
-                <p class="text-slate-500">
-                    Built for
-                    <span class="text-slate-700">BUC3131 Coursework Two, 2026/2027</span>,
-                    Makerere University Business School.
-                </p>
-                @auth
-                    <p class="text-slate-500">
-                        Signed in as
-                        <span class="text-slate-700">{{ Auth::user()->getRoleNames()->implode(', ') ?: 'no role' }}</span>
-                    </p>
-                @endauth
-            </div>
-        </footer>
     </body>
 </html>

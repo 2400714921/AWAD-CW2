@@ -150,20 +150,18 @@ navigation test needed the seeded accounts to sign in as.
 
 **Branch `feature/q5-views-and-components`, pull request #6 — Question 5 (5 marks).**
 
-- `resources/views/layouts/app.blade.php` — the reusable layout with the four parts the question asks
-  for: a header, a navigation bar, a content section that receives the page through the slot, and a
-  footer.
+- `resources/views/layouts/app.blade.php` and `resources/views/layouts/sidebar.blade.php` — the reusable
+  layout with the parts the question asks for: a header, the navigation carried by the left sidebar
+  (a hamburger drawer below 1024 px) and a content section that receives the page through the slot.
 - `resources/views/components/nav-links.blade.php` — one permission-aware link list that fills both the
-  desktop bar and the mobile drawer, so a link to a page the account cannot open is never rendered.
-- `resources/views/components/footer.blade.php` — the coursework attribution and the role the account is
-  acting as.
+  sidebar and the mobile drawer, so a link to a page the account cannot open is never rendered.
 - `app/Http/Controllers/DashboardController.php` and `routes/web.php` — `/dashboard`, `/administrator`,
   `/lecturer` and `/student` resolve to a desk that counts only the figures that role may read,
   replacing the placeholder routes that pointed every role at the same static view.
 - `resources/views/dashboard.blade.php` — the role title, the figure cards and an actions panel gated
   with `@can`, so the create buttons only appear for the role that may press them.
-- `tests/Feature/LayoutAndNavigationTest.php` — 9 tests that check the four layout parts on every page,
-  the per-role desk titles, figures, links and actions, that the desktop bar and the drawer are filled
+- `tests/Feature/LayoutAndNavigationTest.php` — 9 tests that check the three layout parts on every page,
+  the per-role desk titles, figures, links and actions, that the sidebar and the drawer are filled
   from the same list, that a guest page carries neither, and that an account with no role still reaches
   a desk.
 
