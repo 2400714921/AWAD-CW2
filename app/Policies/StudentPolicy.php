@@ -8,16 +8,18 @@ use App\Models\User;
 class StudentPolicy
 {
     /**
-     * An administrator keeps the records, a lecturer reads them, and a student reads only their own.
+     * Every role reaches the register because the controller narrows the list to the rows that
+     * role owns. Opening one record is decided by view(), which a student may only do for their own.
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasAnyPermission(['manage students', 'view student records']);
+        return $user->hasAnyPermission(['manage students', 'view student records', 'view own registrations']);
     }
 
     public function view(User $user, Student $student): bool
     {
-        return $this->viewAny($user) || $user->id === $student->user_id;
+        return $user->hasAnyPermission(['manage students', 'view student records'])
+            || $user->id === $student->user_id;
     }
 
     public function create(User $user): bool

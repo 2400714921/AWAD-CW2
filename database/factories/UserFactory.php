@@ -42,4 +42,36 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    /**
+     * An account that manages students, courses and registrations.
+     */
+    public function administrator(): static
+    {
+        return $this->withRole('administrator');
+    }
+
+    /**
+     * An account that reads the courses assigned to it.
+     */
+    public function lecturer(): static
+    {
+        return $this->withRole('lecturer');
+    }
+
+    /**
+     * An account that registers for its own courses.
+     */
+    public function student(): static
+    {
+        return $this->withRole('student');
+    }
+
+    /**
+     * The roles come from RolePermissionSeeder, so seed those before using these states.
+     */
+    private function withRole(string $role): static
+    {
+        return $this->afterCreating(fn (User $user) => $user->syncRoles([$role]));
+    }
 }
