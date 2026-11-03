@@ -79,8 +79,9 @@
                     </h1>
 
                     <p class="mt-4 max-w-xl text-base leading-relaxed text-slate-600">
-                        Students, courses and the registrations between them, in one Laravel application that shows
-                        each signed-in person only the rows their role may read.
+                        A place to keep the student register, run the course catalogue and take the registrations for a
+                        semester — where each signed-in person is shown only the rows their role may read and the
+                        buttons their role may press.
                     </p>
 
                     <div class="mt-6 flex flex-wrap items-center gap-3">
@@ -93,16 +94,15 @@
                                 Sign in to the system
                             </a>
                         @endauth
-                        <a href="https://github.com/2400714921/AWAD-CW2/blob/develop/README.md" class="rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-blue-700 hover:text-blue-800">
-                            Read the coursework report
-                        </a>
                     </div>
 
-                    <div class="mt-8 grid gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
+                    <h2 class="font-display mt-8 text-base font-semibold text-slate-900">What each role does here</h2>
+
+                    <div class="mt-3 grid gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
                         @foreach ([
-                            'Administrator' => ['Writes the register, the catalogue and every registration, and is the only role that may delete.', ['manage students', 'manage courses', 'manage registrations']],
-                            'Lecturer' => ['Reads the courses assigned to them and the students registered on those courses.', ['view assigned courses', 'view student records']],
-                            'Student' => ['Registers for courses and sees only their own place on them.', ['view available courses', 'register for courses', 'view own registrations']],
+                            'Administrator' => ['Adds and edits students and courses, registers anyone on any course, corrects a status and removes a record once nothing depends on it.', ['manage students', 'manage courses', 'manage registrations']],
+                            'Lecturer' => ['Opens the courses assigned to them, reads who is registered on each one and the registrations standing against them.', ['view assigned courses', 'view student records']],
+                            'Student' => ['Browses the courses still open to them, registers for one, keeps their programme and admission number straight, and cancels only their own registrations.', ['view available courses', 'register for courses', 'view own registrations']],
                         ] as $role => $panel)
                             <div class="bg-white p-4">
                                 <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">{{ $role }}</p>
@@ -125,31 +125,28 @@
                 </div>
 
                 <aside class="self-center rounded-2xl border border-blue-100 bg-blue-50/70 p-5 sm:p-6">
-                    <h2 class="font-display text-lg font-semibold text-slate-900">Sign in as any role</h2>
+                    <h2 class="font-display text-lg font-semibold text-slate-900">What you can do in it</h2>
                     <p class="mt-1.5 text-sm leading-relaxed text-slate-600">
-                        Seeded by
-                        <span class="font-mono text-xs text-slate-800">php artisan migrate:fresh --seed</span>.
-                        Running the seeders twice adds no duplicates.
+                        Every screen reads the signed-in account first, so the rows, the links and the buttons that
+                        appear are only the ones that role is allowed to touch.
                     </p>
 
-                    <ul class="mt-4 divide-y divide-blue-100 border-y border-blue-100 bg-white/70">
+                    <ul class="mt-4 space-y-3 border-t border-blue-100 pt-4">
                         @foreach ([
-                            ['Administrator', 'System Registrar', 'registrar@makerere.ac.ug'],
-                            ['Lecturer', 'Godfrey Asingya', 'g.asingya@makerere.ac.ug'],
-                            ['Student', 'Nansikombi Kirsten', '2400709637@student.makerere.ac.ug'],
-                        ] as [$role, $name, $email])
-                            <li class="px-4 py-2.5">
-                                <p class="text-xs font-semibold uppercase tracking-wider text-blue-700">{{ $role }}</p>
-                                <p class="mt-0.5 text-sm font-medium text-slate-900">{{ $name }}</p>
-                                <p class="mt-0.5 break-all font-mono text-xs text-slate-500">{{ $email }}</p>
+                            'Keep the register: admission number, names, programme, year of study and date of birth for every student.',
+                            'Run the catalogue: course code, title, credit units, semester and the lecturer assigned to teach it.',
+                            'Register a student on a course with a status and the date of enrolment, and cancel it again.',
+                            'Register a student on behalf of that student, or let them do it themselves from their own desk.',
+                            'Refuse a duplicate registration, a malformed form, and any delete another record still depends on.',
+                        ] as $task)
+                            <li class="flex gap-3 text-sm leading-relaxed text-slate-700">
+                                <svg class="mt-0.5 h-4 w-4 shrink-0 text-blue-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>{{ $task }}</span>
                             </li>
                         @endforeach
                     </ul>
-
-                    <p class="mt-4 text-sm text-slate-600">
-                        Password for every account
-                        <span class="ml-1 font-mono font-semibold text-blue-800">password</span>
-                    </p>
                 </aside>
             </div>
         </main>
