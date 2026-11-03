@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Student Management System') }} — BUC3131 Coursework Two</title>
-        <meta name="description" content="Student Management System for Makerere University Business School, BUC3131 Advanced Web Application Development, Coursework Two 2026/2027. Students, courses and registrations, guarded by three roles.">
+        <title>Student Management System — BUC3131</title>
+        <meta name="description" content="Student Management System for Makerere University Business School, BUC3131 Advanced Web Application Development. Students, courses and registrations, guarded by three roles.">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -42,7 +42,7 @@
                     </span>
                     <span class="leading-tight">
                         <span class="block text-sm font-semibold text-slate-900">Student Management System</span>
-                        <span class="block text-xs text-slate-500">{{ config('app.name', 'AWAD CW2') }} · BUC3131</span>
+                        <span class="block text-xs text-slate-500">BUC3131 · 2026/2027</span>
                     </span>
                 </a>
 
@@ -71,7 +71,7 @@
             <div class="mx-auto grid w-full max-w-6xl gap-8 px-5 py-8 sm:px-8 lg:gap-12 xl:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] xl:py-10">
                 <div>
                     <p class="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
-                        Makerere University Business School · Coursework Two 2026/2027
+                        Makerere University Business School · 2026/2027
                     </p>
 
                     <h1 class="font-display mt-4 text-4xl font-semibold leading-[1.1] text-slate-900 sm:text-5xl">
