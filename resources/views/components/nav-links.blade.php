@@ -1,32 +1,23 @@
 @php
     $user = auth()->user();
 
+    // /dashboard shows the same desk as the address named after the role, so the account's own desk is
+    // listed once, as Overview, and only the desks another role holds would need their own row.
+    $ownDesk = match (true) {
+        $user->checkPermissionTo('manage students') => 'administrator',
+        $user->checkPermissionTo('view assigned courses') => 'lecturer',
+        $user->checkPermissionTo('view available courses') => 'student',
+        default => 'dashboard',
+    };
+
     // Every link here is decided by what the signed-in account is allowed to open, so the sidebar and
     // the mobile drawer can both read from the same list.
     $links = [
         [
-            'route' => 'dashboard',
-            'pattern' => 'dashboard',
+            'route' => $ownDesk,
+            'pattern' => ['dashboard', $ownDesk],
             'label' => 'Overview',
             'allowed' => true,
-        ],
-        [
-            'route' => 'administrator',
-            'pattern' => 'administrator',
-            'label' => 'Administrator desk',
-            'allowed' => $user->checkPermissionTo('manage students'),
-        ],
-        [
-            'route' => 'lecturer',
-            'pattern' => 'lecturer',
-            'label' => 'Lecturer desk',
-            'allowed' => $user->checkPermissionTo('view assigned courses'),
-        ],
-        [
-            'route' => 'student',
-            'pattern' => 'student',
-            'label' => 'My studies',
-            'allowed' => $user->checkPermissionTo('view available courses'),
         ],
         [
             'route' => 'students.index',
