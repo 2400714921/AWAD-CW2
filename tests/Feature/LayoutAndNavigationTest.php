@@ -123,12 +123,12 @@ class LayoutAndNavigationTest extends TestCase
             ->assertDontSee('New course');
     }
 
-    public function test_the_same_permission_aware_list_fills_the_desktop_bar_and_the_mobile_drawer(): void
+    public function test_the_same_permission_aware_list_fills_the_sidebar_and_the_mobile_drawer(): void
     {
         $page = $this->actingAs($this->account(self::ADMINISTRATOR))->get('/dashboard');
 
         // The desk label also appears as the page heading, so only the link is counted: one in the
-        // bar, one in the drawer.
+        // sidebar, one in the drawer.
         $this->assertSame(2, substr_count($page->getContent(), 'href="'.route('administrator').'"'));
         $this->assertSame(0, substr_count($page->getContent(), 'href="'.route('student').'"'));
 

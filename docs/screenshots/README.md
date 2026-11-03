@@ -14,7 +14,7 @@ them up automatically.
 
 | File | Sign in as | Address | What must be visible |
 |---|---|---|---|
-| `administrator-desk.png` | `registrar@makerere.ac.ug` | `/administrator` | the heading *Dashboard — Administrator desk*, the four counts (students, courses, live registrations, accounts), the navigation showing the administrator's links, and the footer naming the `administrator` role |
+| `administrator-desk.png` | `registrar@makerere.ac.ug` | `/administrator` | the heading *Dashboard — Administrator desk*, the four counts (students, courses, live registrations, accounts), the sidebar showing the administrator's links, and the footer naming the `administrator` role |
 | `administrator-students.png` | `registrar@makerere.ac.ug` | `/students` | all eight students with their admission numbers, programmes and years of study, plus the Edit and Delete links that only the administrator sees |
 | `administrator-courses.png` | `registrar@makerere.ac.ug` | `/courses` | the heading *All courses* and the six courses with codes, titles, credit units, semester and teaching lecturer |
 | `administrator-registrations.png` | `registrar@makerere.ac.ug` | `/registrations` | the twenty registrations with the student, the course, the status and the `registered_at` date from the pivot table |
@@ -25,8 +25,10 @@ them up automatically.
 | `permission-refused.png` | `2400709637@student.makerere.ac.ug` | `/administrator` typed into the bar | the 403 response, which shows the permission middleware refusing a signed-in student rather than showing an empty page |
 | `navigation-collapsed.png` | `2400709637@student.makerere.ac.ug` | `/dashboard` | the narrow (mobile) layout with the hamburger menu open, listing only Overview, My studies, Students, Courses, Registrations and *Register for a course* |
 
-For the last one, shrink the browser window below the `sm` breakpoint (640 px) or use the device toolbar
-in the browser's developer tools, and capture the drawer rather than the desktop bar.
+For the last one, shrink the browser window below the `lg` breakpoint (1024 px) or use the device toolbar
+in the browser's developer tools, and capture the drawer rather than the sidebar. Every other picture
+should be taken wider than 1024 px, where the left sidebar with the signed-in name and the Log Out link is
+visible.
 
 The three pictures that carry the most marks are `form-validation-errors.png` (question 4's validation
 and question 5's form check), `permission-refused.png` (question 3's roles) and

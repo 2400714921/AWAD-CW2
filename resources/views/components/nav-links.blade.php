@@ -1,10 +1,8 @@
-@props(['responsive' => false])
-
 @php
     $user = auth()->user();
 
-    // Every link here is decided by what the signed-in account is allowed to open, so the desktop
-    // bar and the mobile drawer can both read from the same list.
+    // Every link here is decided by what the signed-in account is allowed to open, so the sidebar and
+    // the mobile drawer can both read from the same list.
     $links = [
         [
             'route' => 'dashboard',
@@ -60,13 +58,7 @@
 @foreach ($links as $link)
     @continue(! $link['allowed'])
 
-    @if ($responsive)
-        <x-responsive-nav-link :href="route($link['route'])" :active="request()->routeIs($link['pattern'])">
-            {{ $link['label'] }}
-        </x-responsive-nav-link>
-    @else
-        <x-nav-link :href="route($link['route'])" :active="request()->routeIs($link['pattern'])">
-            {{ $link['label'] }}
-        </x-nav-link>
-    @endif
+    <x-nav-link :href="route($link['route'])" :active="request()->routeIs($link['pattern'])">
+        {{ $link['label'] }}
+    </x-nav-link>
 @endforeach
