@@ -100,28 +100,16 @@
 
                     <div class="mt-3 grid gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
                         @foreach ([
-                            'Administrator' => ['Adds and edits students and courses, registers anyone on any course, corrects a status and removes a record once nothing depends on it.', ['manage students', 'manage courses', 'manage registrations']],
-                            'Lecturer' => ['Opens the courses assigned to them, reads who is registered on each one and the registrations standing against them.', ['view assigned courses', 'view student records']],
-                            'Student' => ['Browses the courses still open to them, registers for one, keeps their programme and admission number straight, and cancels only their own registrations.', ['view available courses', 'register for courses', 'view own registrations']],
-                        ] as $role => $panel)
+                            'Administrator' => 'Adds and edits students and courses, registers anyone on any course, corrects a status and removes a record once nothing depends on it.',
+                            'Lecturer' => 'Opens the courses assigned to them, reads who is registered on each one and the registrations standing against them.',
+                            'Student' => 'Browses the courses still open to them, registers for one, keeps their programme and admission number straight, and cancels only their own registrations.',
+                        ] as $role => $summary)
                             <div class="bg-white p-4">
                                 <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">{{ $role }}</p>
-                                <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ $panel[0] }}</p>
-                                <ul class="mt-3 flex flex-wrap gap-1.5">
-                                    @foreach ($panel[1] as $chip)
-                                        <li class="rounded-full border border-blue-100 bg-blue-50 px-2 py-0.5 font-mono text-[11px] text-blue-800">{{ $chip }}</li>
-                                    @endforeach
-                                </ul>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ $summary }}</p>
                             </div>
                         @endforeach
                     </div>
-
-                    <p class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-xs text-slate-500">
-                        <span>Laravel 12 on PHP 8.2</span>
-                        <span>4 core tables</span>
-                        <span>3 roles · 9 permissions</span>
-                        <span>112 tests passing</span>
-                    </p>
                 </div>
 
                 <aside class="self-center rounded-2xl border border-blue-100 bg-blue-50/70 p-5 sm:p-6">
@@ -158,18 +146,12 @@
                     <span class="text-slate-700">BUC3131 Coursework Two, 2026/2027</span>,
                     Makerere University Business School.
                 </p>
-                <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm">
-                    <a href="https://github.com/2400714921/AWAD-CW2" class="text-slate-600 transition hover:text-blue-800">Repository</a>
-                    <a href="https://github.com/2400714921/AWAD-CW2/blob/develop/CONTRIBUTIONS.md" class="text-slate-600 transition hover:text-blue-800">Contributions</a>
-                    @auth
-                        <span class="text-slate-500">
-                            Signed in as
-                            <span class="text-slate-700">{{ Auth::user()->getRoleNames()->implode(', ') ?: 'no role' }}</span>
-                        </span>
-                    @else
-                        <span class="text-slate-400">Laravel 12 · PHP 8.2 · MariaDB</span>
-                    @endauth
-                </div>
+                @auth
+                    <p class="text-slate-500">
+                        Signed in as
+                        <span class="text-slate-700">{{ Auth::user()->getRoleNames()->implode(', ') ?: 'no role' }}</span>
+                    </p>
+                @endauth
             </div>
         </footer>
     </body>
