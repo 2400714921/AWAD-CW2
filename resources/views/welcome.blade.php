@@ -95,8 +95,17 @@
                             </a>
                         @endauth
                     </div>
+                </div>
 
-                    <h2 class="font-display mt-8 text-base font-semibold text-slate-900">What each role does here</h2>
+                <aside class="self-center rounded-2xl border border-blue-100 bg-blue-50/70 p-5 sm:p-6">
+                    <img src="/images/hero-lecture-hall.jpg"
+                         alt="Students at their desks in a Makerere University lecture room while two presenters work at the front"
+                         width="1120" height="700" fetchpriority="high" decoding="async"
+                         class="h-48 w-full rounded-xl object-cover shadow-sm ring-1 ring-slate-200">
+                </aside>
+
+                <div class="xl:col-span-2">
+                    <h2 class="font-display text-base font-semibold text-slate-900">What each role does here</h2>
 
                     <div class="mt-3 grid gap-px overflow-hidden rounded-xl border border-slate-200 bg-slate-200 sm:grid-cols-3">
                         @foreach ([
@@ -128,13 +137,6 @@
                         @endforeach
                     </div>
                 </div>
-
-                <aside class="self-center rounded-2xl border border-blue-100 bg-blue-50/70 p-5 sm:p-6">
-                    <img src="/images/hero-lecture-hall.jpg"
-                         alt="Students at their desks in a Makerere University lecture room while two presenters work at the front"
-                         width="1120" height="700" fetchpriority="high" decoding="async"
-                         class="h-48 w-full rounded-xl object-cover shadow-sm ring-1 ring-slate-200">
-                </aside>
             </div>
         </main>
     </body>
